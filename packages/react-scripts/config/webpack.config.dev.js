@@ -21,6 +21,7 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
+const webComponentSettings = require(paths.webComponentConfig);
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -190,7 +191,12 @@ module.exports = {
           {
             test: /\.css$/,
             use: [
-              require.resolve('style-loader'),
+              {
+                loader: require.resolve('style-loader'),
+                options: {
+                  insertInto: webComponentSettings.tagName + '::shadow',
+                },
+              },
               {
                 loader: require.resolve('css-loader'),
                 options: {
@@ -249,8 +255,9 @@ module.exports = {
     new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
-      inject: true,
+      inject: false,
       template: paths.appHtml,
+      tagName: webComponentSettings.tagName,
     }),
     // Add module names to factory functions so they appear in browser profiler.
     new webpack.NamedModulesPlugin(),
