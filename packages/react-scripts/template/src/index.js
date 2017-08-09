@@ -21,4 +21,7 @@ webComponents.forEach(function({ shadowRoot }) {
   }
 });
 
+// todo this is how it should work
+// ReactWebComponent.create(<App />, 'my-react-web-component')
+
 registerServiceWorker();
