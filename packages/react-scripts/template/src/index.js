@@ -2,19 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import webComponentSettings from './webComponent.json';
 import registerServiceWorker from './registerServiceWorker';
 
-// todo this sucks
-import { tagName } from './webComponent.json';
+const webComponents = [
+  ...document.querySelectorAll(webComponentSettings.tagName),
+];
 
-// todo test is document === web component?
-const shadowRoot = document.querySelector(tagName).shadowRoot;
-const isMounted = shadowRoot.querySelector('#react-app') !== null;
+webComponents.forEach(function({ shadowRoot }) {
+  const isMounted = shadowRoot.querySelector('#react-app') !== null;
+  if (!isMounted) {
+    const mountPoint = document.createElement('div');
+    mountPoint.id = 'react-app';
+    shadowRoot.appendChild(mountPoint);
+    ReactDOM.render(<App />, mountPoint);
+  }
+});
 
-if (!isMounted) {
-  const mountPoint = document.createElement('span');
-  // todo mountPoint.id = 'react-app';
-  shadowRoot.appendChild(mountPoint);
-  ReactDOM.render(<App />, mountPoint);
-}
 registerServiceWorker();
