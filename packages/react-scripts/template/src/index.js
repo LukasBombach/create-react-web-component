@@ -22,6 +22,7 @@ webComponents.forEach(function({ shadowRoot }) {
 });
 
 // todo this is how it should work
-// ReactWebComponent.create(<App />, 'my-react-web-component')
+// todo ReactWebComponentLoader Webpack plugin should transform this to what is currently in the index.html
+// ReactWebComponent.create(<App />, 'my-react-web-component');
 
 registerServiceWorker();
