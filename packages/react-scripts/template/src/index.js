@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import retargetEvents from 'react-shadow-dom-retarget-events';
 import './index.css';
 import App from './App';
 import webComponentSettings from './webComponent.json';
@@ -16,6 +17,7 @@ webComponents.forEach(function({ shadowRoot }) {
     mountPoint.id = 'react-app';
     shadowRoot.appendChild(mountPoint);
     ReactDOM.render(<App />, mountPoint);
+    retargetEvents(shadowRoot);
   }
 });
 
