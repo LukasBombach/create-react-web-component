@@ -1,14 +1,14 @@
 {
-  "name": "react-scripts",
+  "name": "react-scripts-web-component",
   "version": "1.0.10",
-  "description": "Configuration and scripts for Create React App.",
-  "repository": "facebookincubator/create-react-app",
+  "description": "Configuration and scripts for Create React Web Component.",
+  "repository": "LukasBombach/create-react-web-component",
   "license": "BSD-3-Clause",
   "engines": {
     "node": ">=6"
   },
   "bugs": {
-    "url": "https://github.com/facebookincubator/create-react-app/issues"
+    "url": "https://github.com/LukasBombach/create-react-web-component/issues"
   },
   "files": [
     "bin",
@@ -50,7 +50,8 @@
     "promise": "8.0.1",
     "react-dev-utils": "^3.0.2",
     "react-error-overlay": "^1.0.9",
-    "style-loader": "0.18.2",
+    "react-shadow-dom-retarget-events": "react-shadow-dom-retarget-events",
+    "style-loader": "LukasBombach/style-loader#allow-insertInto-shadow-dom",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.5.9",
     "webpack": "3.4.1",
