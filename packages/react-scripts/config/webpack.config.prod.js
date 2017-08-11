@@ -22,7 +22,7 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
-const webComponentSettings = require(paths.webComponentConfig);
+const HelloWorldPlugin = require('../react-web-component-loader/hello-world-plugin');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -257,6 +257,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new HelloWorldPlugin({ options: true }),
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
@@ -267,7 +268,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: false,
       template: paths.appHtml,
-      tagName: webComponentSettings.tagName,
       minify: {
         removeComments: true,
         collapseWhitespace: true,
