@@ -1,9 +1,10 @@
 import ReactDOM from 'react-dom';
-import retargetEvents from 'react-shadow-dom-retarget-events';
+import retargetEvents from './retargetEvents';
+import createStyleTag from './createStyleTag';
 
 export default {
   /**
-   * todo fix jsdoc type of app
+   * todo fix jsdoc type of app and options
    * @param {*} app
    * @param {string} tagName
    * @param {Object} [options]
@@ -12,16 +13,16 @@ export default {
     const proto = Object.create(HTMLElement.prototype, {
       attachedCallback: {
         value: function() {
-          const mountPoint = document.createElement('div');
-          const cssHack = document.createElement('div');
           const shadowRoot = this.createShadowRoot();
-          const css =
-            options && typeof options.injectReactWebComponent === 'string'
-              ? options.injectReactWebComponent
-              : '';
+          const mountPoint = document.createElement('div');
+          [
+            ...document.head.querySelectorAll(
+              'script[type="text/x-react-web-component-css"]'
+            ),
+          ] // todo [data-component-name="${tagName}"]
+            .map(node => createStyleTag(node.innerHTML))
+            .forEach(element => shadowRoot.appendChild(element));
           shadowRoot.appendChild(mountPoint);
-          shadowRoot.appendChild(cssHack);
-          cssHack.insertAdjacentHTML('beforeend', css);
           ReactDOM.render(app, mountPoint);
           retargetEvents(shadowRoot);
         },

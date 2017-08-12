@@ -20,7 +20,7 @@ ReactWebComponentPlugin.prototype.apply = function(compiler) {
       compilation.assets[fileName].children.forEach(child => {
         if (child._value) {
           child._value = child._value.replace(
-            /injectReactWebComponent\s*:\s*true/g,
+            /injectReactWebComponent\s*:\s*(true|!0)/g,
             `injectReactWebComponent: \'${cssLinkTagsAsString}\'`
           );
         }

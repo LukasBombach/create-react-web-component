@@ -192,9 +192,6 @@ module.exports = {
             use: [
               {
                 loader: require.resolve('style-loader'),
-                // options: {
-                //   insertInto: 'react-web-component::shadow',
-                // },
               },
               {
                 loader: require.resolve('css-loader'),
