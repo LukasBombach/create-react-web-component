@@ -53,6 +53,7 @@
     "style-loader": "LukasBombach/style-loader#react-web-component-loader",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.5.9",
+    "uuid": "^3.1.0",
     "webpack": "3.4.1",
     "webpack-dev-server": "2.6.1",
     "webpack-manifest-plugin": "1.2.1",

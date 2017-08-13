@@ -15,11 +15,12 @@ export default {
         value: function() {
           const shadowRoot = this.createShadowRoot();
           const mountPoint = document.createElement('div');
+          const uuid = REACT_WEB_COMPONENT_UUID; // eslint-disable-line no-undef
           [
             ...document.head.querySelectorAll(
-              'script[type="text/x-react-web-component-css"]'
+              `script[type="text/x-react-web-component-css"][data-webpack-uuid="${uuid}"]`
             ),
-          ] // todo [data-component-name="${tagName}"]
+          ]
             .map(node => createStyleTag(node.innerHTML))
             .forEach(element => shadowRoot.appendChild(element));
           shadowRoot.appendChild(mountPoint);

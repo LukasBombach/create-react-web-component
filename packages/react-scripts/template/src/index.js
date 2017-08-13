@@ -4,8 +4,6 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactWebComponent.create(<App />, 'react-web-component', {
-  injectReactWebComponent: true,
-});
+ReactWebComponent.create(<App />, 'react-web-component');
 
 registerServiceWorker();
