@@ -50,6 +50,7 @@
     "promise": "8.0.1",
     "react-dev-utils": "^3.0.2",
     "react-error-overlay": "^1.0.9",
+    "react-web-component": "LukasBombach/react-web-component",
     "style-loader": "LukasBombach/style-loader#react-web-component-style-loader",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.5.9",
