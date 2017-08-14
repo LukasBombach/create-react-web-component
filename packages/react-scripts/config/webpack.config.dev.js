@@ -190,7 +190,7 @@ module.exports = {
           {
             test: /\.css$/,
             use: [
-              require.resolve('style-loader'),
+              require.resolve('react-web-component-style-loader'),
               {
                 loader: require.resolve('css-loader'),
                 options: {

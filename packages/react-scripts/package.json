@@ -1,6 +1,6 @@
 {
   "name": "react-scripts-web-component",
-  "version": "2.0.0",
+  "version": "2.0.1-alpha",
   "description": "Configuration and scripts for Create React Web Component.",
   "repository": "LukasBombach/create-react-web-component",
   "license": "BSD-3-Clause",
@@ -51,7 +51,7 @@
     "react-dev-utils": "^3.0.2",
     "react-error-overlay": "^1.0.9",
     "react-web-component": "LukasBombach/react-web-component",
-    "style-loader": "LukasBombach/style-loader#react-web-component-style-loader",
+    "react-web-component-style-loader": "^0.1.2-alpha",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.5.9",
     "webpack": "3.4.1",

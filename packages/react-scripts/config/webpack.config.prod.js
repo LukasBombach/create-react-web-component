@@ -197,7 +197,7 @@ module.exports = {
             loader: ExtractTextPlugin.extract(
               Object.assign(
                 {
-                  fallback: require.resolve('style-loader'),
+                  fallback: require.resolve('react-web-component-style-loader'),
                   use: [
                     {
                       loader: require.resolve('css-loader'),
@@ -238,7 +238,7 @@ module.exports = {
             test: /\.css$/,
             use: [
               {
-                loader: require.resolve('style-loader'),
+                loader: require.resolve('react-web-component-style-loader'),
               },
               {
                 loader: require.resolve('css-loader'),
