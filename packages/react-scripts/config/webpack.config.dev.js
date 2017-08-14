@@ -19,7 +19,6 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
-const uuidv4 = require('uuid/v4');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 
@@ -191,9 +190,7 @@ module.exports = {
           {
             test: /\.css$/,
             use: [
-              {
-                loader: require.resolve('style-loader'),
-              },
+              require.resolve('style-loader'),
               {
                 loader: require.resolve('css-loader'),
                 options: {
@@ -245,9 +242,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new webpack.DefinePlugin({
-      REACT_WEB_COMPONENT_UUID: JSON.stringify(uuidv4()),
-    }),
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
@@ -255,7 +249,7 @@ module.exports = {
     new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
-      inject: false,
+      inject: true,
       template: paths.appHtml,
     }),
     // Add module names to factory functions so they appear in browser profiler.
