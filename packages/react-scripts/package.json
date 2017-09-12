@@ -1,6 +1,6 @@
 {
-  "name": "react-scripts-web-component",
-  "version": "2.0.3-alpha",
+  "name": "react-web-component-react-scripts",
+  "version": "1.0.0-alpha",
   "description": "Configuration and scripts for Create React Web Component.",
   "repository": "LukasBombach/create-react-web-component",
   "license": "BSD-3-Clause",
