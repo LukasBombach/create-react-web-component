@@ -192,12 +192,12 @@ module.exports = {
           // tags. If you use code splitting, however, any async bundles will still
           // use the "style" loader inside the async code so CSS from them won't be
           // in the main CSS file.
-          {
+          /*{
             test: /\.css$/,
             loader: ExtractTextPlugin.extract(
               Object.assign(
                 {
-                  fallback: require.resolve('style-loader'),
+                  fallback: require.resolve('react-web-component-style-loader'),
                   use: [
                     {
                       loader: require.resolve('css-loader'),
@@ -233,6 +233,40 @@ module.exports = {
               )
             ),
             // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+          },*/
+          {
+            test: /\.css$/,
+            use: [
+              {
+                loader: require.resolve('react-web-component-style-loader'),
+              },
+              {
+                loader: require.resolve('css-loader'),
+                options: {
+                  importLoaders: 1,
+                },
+              },
+              {
+                loader: require.resolve('postcss-loader'),
+                options: {
+                  // Necessary for external CSS imports to work
+                  // https://github.com/facebookincubator/create-react-app/issues/2677
+                  ident: 'postcss',
+                  plugins: () => [
+                    require('postcss-flexbugs-fixes'),
+                    autoprefixer({
+                      browsers: [
+                        '>1%',
+                        'last 4 versions',
+                        'Firefox ESR',
+                        'not ie < 9', // React doesn't support IE8 anyway
+                      ],
+                      flexbox: 'no-2009',
+                    }),
+                  ],
+                },
+              },
+            ],
           },
           // "file" loader makes sure assets end up in the `build` folder.
           // When you `import` an asset, you get its filename.
@@ -266,6 +300,24 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true,
+      },
+    }),
+    // Generates an `htmlImport.html` file
+    new HtmlWebpackPlugin({
+      inject: false,
+      template: paths.htmlImport,
+      filename: 'htmlImport.html',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
