@@ -1,14 +1,14 @@
 {
   "name": "react-web-component-react-scripts",
-  "version": "1.0.0-alpha",
+  "version": "1.0.1-alpha",
   "description": "Configuration and scripts for Create React Web Component.",
-  "repository": "LukasBombach/create-react-web-component",
+  "repository": "WeltN24/create-react-web-component",
   "license": "BSD-3-Clause",
   "engines": {
     "node": ">=6"
   },
   "bugs": {
-    "url": "https://github.com/LukasBombach/create-react-web-component/issues"
+    "url": "https://github.com/WeltN24/create-react-web-component/issues"
   },
   "files": [
     "bin",
