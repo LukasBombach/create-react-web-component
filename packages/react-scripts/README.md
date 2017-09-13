@@ -25,7 +25,7 @@ Then create a new project with the `create-react-app` CLI pointing to `react-web
 ```
 create-react-app my-app --scripts-version react-scripts-web-component
 cd my-app/
-npm start
+yarn start
 ```
 
 ## Differences to the original create-react-app react-scripts
@@ -43,9 +43,46 @@ ReactWebComponent.create(<App />, 'react-web-component');
 registerServiceWorker();
 ```
 
-Instead of rendering your app into an element a web component (named `react-web-component`) will be created. Because we use `react-web-component-style-loader` all CSS you import in your project will be injected into the web component.
+Instead of rendering your app into an element, a web component (here named `react-web-component`) will be created. Because we use `react-web-component-style-loader` all CSS you import in your project will be injected into the web component. Please refer to the documentation on `react-web-component` and `react-web-component-style-loader` for their usage:
 
-All other details on setting up and working with `react-web-component-react-scripts` work exactly the same as in the original `create-react-app`. Please refer to their documentation:
+* [react-web-component](https://github.com/WeltN24/react-web-component)
+* [react-web-component-style-loader](https://github.com/WeltN24/react-web-component-style-loader)
+
+Another difference is that next to the `index.html` a file `htmlImport.html` will be generated. Use `index.html` for development to preview your web component. Use `htmlImport.html` after building to use a with [HTML Imports](https://developer.mozilla.org/en-US/docs/Web/Web_Components/HTML_Imports).
+
+## Development
+
+After having created your project and switched to your project folder run
+
+```
+yarn start
+```
+
+A development server should start and http://localhost:3000 should open displaying your web component. You can develop your React components without any restrictions in complexity and features. Bare in mind though that you should not modify the host pages URL, for instance through `react-router`. You can still use `react-router` with the `MemoryRouter` and have no negative side effects. 
+
+Read more about this and other development strategies on [WeltN24/react-web-component](https://github.com/WeltN24/react-web-component).
+
+## Building
+
+When you want to create a production build of your web component run
+
+```
+yarn build
+```
+
+The build directory now holds 2 HTML files: `index.html` and `htmlImport.html`. `index.html` is the HTML file you saw when you were developing your component, a website containing your web component. `htmlImport.html` holds the web component without HTML around it. You can use it to load it via [HTML Imports](https://developer.mozilla.org/en-US/docs/Web/Web_Components/HTML_Imports).
+
+## Ejecting
+
+You can eject your project the same way you eject an app created with `create-react-app`.
+
+```
+yarn eject
+```
+
+## Further documentation
+
+All other details on setting up and working with `react-web-component-react-scripts` work exactly the same as in the original `create-react-app`. Please refer to its documentation for further details:
 
 * [Project Home](https://github.com/facebookincubator/create-react-app)
 * [Getting Started](https://github.com/facebookincubator/create-react-app/blob/master/README.md#getting-started) – How to create a new app.
