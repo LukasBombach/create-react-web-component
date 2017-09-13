@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="create-react-web-component Logo" src="https://github.com/WeltN24/create-react-web-component/blob/master/packages/react-scripts/docs/images/logo.png">
+  <img alt="create-react-web-component Logo" src="https://github.com/WeltN24/create-react-web-component/raw/master/packages/react-scripts/docs/images/logo.png">
 </p>
 
 # react-web-component-react-scripts
