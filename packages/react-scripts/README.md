@@ -23,7 +23,7 @@ npm install -g create-react-app
 Then create a new project with the `create-react-app` CLI pointing to `react-web-component-react-scripts`:
 
 ```
-create-react-app my-app --scripts-version react-scripts-web-component
+create-react-app my-app --scripts-version react-web-component-react-scripts
 cd my-app/
 yarn start
 ```
