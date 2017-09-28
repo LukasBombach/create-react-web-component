@@ -1,6 +1,6 @@
 {
   "name": "react-web-component-react-scripts",
-  "version": "1.0.9-alpha",
+  "version": "1.0.10-alpha",
   "description": "Configuration and scripts for Create React Web Component.",
   "repository": "WeltN24/create-react-web-component",
   "license": "BSD-3-Clause",
@@ -50,8 +50,8 @@
     "promise": "8.0.1",
     "react-dev-utils": "^3.0.2",
     "react-error-overlay": "^1.0.9",
-    "react-web-component": "^1.0.1-alpha",
-    "react-web-component-style-loader": "^0.1.2-alpha",
+    "react-web-component": "^1.0.11-alpha",
+    "react-web-component-style-loader": "^0.1.4-alpha",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.5.9",
     "webpack": "3.4.1",
