@@ -3,7 +3,7 @@
   "version": "1.0.7",
   "description": "Retargets event in a shadow root to react",
   "main": "index.js",
-  "repository": "WeltN24/react-shadow-dom-retarget-events",
+  "repository": "WeltN24/create-react-web-component",
   "author": "Lukas Bombach <lukas.bombach@googlemail.com>",
   "license": "MIT"
 }
