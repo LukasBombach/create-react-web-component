@@ -13,4 +13,4 @@ Apart from generating a web component instead of a single page application every
 * [react-web-component-react-scripts](https://github.com/WeltN24/create-react-web-component/tree/master/packages/react-scripts) - The actual implementation in the repository
 * [Create React App](https://github.com/facebookincubator/create-react-app) - The original Create React App GitHub repository
 * [Getting Started](https://github.com/facebookincubator/create-react-app/blob/master/README.md#getting-started) – How to create a new app.
-* [User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md) – How to develop apps bootstrapped with Create React App.
+* [User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md) – How to develop apps bootstrapp

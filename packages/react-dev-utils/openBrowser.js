@@ -1,10 +1,8 @@
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 'use strict';
@@ -12,9 +10,9 @@
 var chalk = require('chalk');
 var execSync = require('child_process').execSync;
 var spawn = require('cross-spawn');
-var opn = require('opn');
+var open = require('open');
 
-// https://github.com/sindresorhus/opn#app
+// https://github.com/sindresorhus/open#app
 var OSX_CHROME = 'google chrome';
 
 const Actions = Object.freeze({
@@ -26,7 +24,7 @@ const Actions = Object.freeze({
 function getBrowserEnv() {
   // Attempt to honor this environment variable.
   // It is specific to the operating system.
-  // See https://github.com/sindresorhus/opn#app for documentation.
+  // See https://github.com/sindresorhus/open#app for documentation.
   const value = process.env.BROWSER;
   let action;
   if (!value) {
@@ -90,16 +88,16 @@ function startBrowserProcess(browser, url) {
   // Another special case: on OS X, check if BROWSER has been set to "open".
   // In this case, instead of passing `open` to `opn` (which won't work),
   // just ignore it (thus ensuring the intended behavior, i.e. opening the system browser):
-  // https://github.com/facebookincubator/create-react-app/pull/1690#issuecomment-283518768
+  // https://github.com/facebook/create-react-app/pull/1690#issuecomment-283518768
   if (process.platform === 'darwin' && browser === 'open') {
     browser = undefined;
   }
 
-  // Fallback to opn
+  // Fallback to open
   // (It will always open new tab)
   try {
-    var options = { app: browser };
-    opn(url, options).catch(() => {}); // Prevent `unhandledRejection` error.
+    var options = { app: browser, wait: false };
+    open(url, options).catch(() => {}); // Prevent `unhandledRejection` error.
     return true;
   } catch (err) {
     return false;
@@ -107,7 +105,7 @@ function startBrowserProcess(browser, url) {
 }
 
 /**
- * Reads the BROWSER evironment variable and decides what to do with it. Returns
+ * Reads the BROWSER environment variable and decides what to do with it. Returns
  * true if it opened a browser or ran a node.js script, otherwise false.
  */
 function openBrowser(url) {
