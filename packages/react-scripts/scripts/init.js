@@ -75,7 +75,7 @@ function tryGitInit(appPath) {
   }
 }
 
-module.exports = function(
+module.exports = function (
   appPath,
   appName,
   verbose,
@@ -90,6 +90,12 @@ module.exports = function(
 
   // Copy over some of the devDependencies
   appPackage.dependencies = appPackage.dependencies || {};
+
+  // make sure some required dependencies for web components are present
+  appPackage.dependencies = Object.assign({
+    "react-web-component": "1.0.14",
+    "react-web-component-style-loader": "^0.1.4-alpha"
+  }, appPackage.dependencies)
 
   const useTypeScript = appPackage.dependencies['typescript'] != null;
 
